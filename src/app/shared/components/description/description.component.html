@@ -5,15 +5,23 @@
     <div *ngIf="youtubeKey" class="description-video-player">
       <iframe
         [src]="getYoutubeUrl()"
-        width="441"
-        height="290"
+        [width]="getWidth()"
+        height="320"
         frameborder="0"
         allow="autoplay; encrypted-media"
         allowfullscreen
       ></iframe>
     </div>
     <div class="description-text">
-      <p class="rating">SCORE: <span>{{media.rating}}</span></p>
+      <p class="rating">
+        SCORE:
+        <bar-rating
+          [(rate)]="media.rating"
+          [max]="10"
+          [readOnly]="true"
+        ></bar-rating>
+      </p>
+
       <p>{{ media.description }}</p>
     </div>
   </div>
