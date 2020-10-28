@@ -8,6 +8,8 @@ Trying to reduce duplication of code.
 Created mocks file for stubs and mocks, wrote a couple of unit tests, to check whether they work.
 (unit tests are run with the commang ng test)
 
-Deployed on Heroku. (todo)
+## To run the app:
+
+Run ng build, and then npm start OR check it on heroku at -> [Here](https://https://angular-movie-tvshow-api.herokuapp.com/shows)
 
 NOTE: I filtered out the movies/shows without an image (to be more visually appealing).
