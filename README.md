@@ -10,6 +10,6 @@ Created mocks file for stubs and mocks, wrote a couple of unit tests, to check w
 
 ## To run the app:
 
-Run ng build, and then npm start OR check it on heroku at -> [Here](https://https://angular-movie-tvshow-api.herokuapp.com/shows)
+Run ng build, and then npm start OR check it on heroku at -> [Here](https://angular-movie-tvshow-api.herokuapp.com/shows)
 
 NOTE: I filtered out the movies/shows without an image (to be more visually appealing).
