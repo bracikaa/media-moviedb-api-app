@@ -25,7 +25,7 @@ export class DescriptionComponent implements OnInit {
 
   getYoutubeUrl(): SafeResourceUrl {
     let url = this._sanitizer.bypassSecurityTrustResourceUrl(
-      'http://www.youtube.com/embed/' + this.youtubeKey
+      'https://www.youtube.com/embed/' + this.youtubeKey
     );
     return url;
   }
