@@ -1,0 +1,11 @@
+<app-loader #loader></app-loader>
+
+<app-tabs (mediaChange)="onMediaChange($event)"></app-tabs>
+
+<app-search (searchChange)="onSearchChange($event)"></app-search>
+
+<app-card-list
+  *ngIf="media"
+  [media]="media"
+  [typeOfMedia]="typeOfMedia"
+></app-card-list>

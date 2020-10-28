@@ -1,0 +1,51 @@
+.description-wrapper {
+  margin-bottom: 2rem;
+
+  .star6:before {
+    content: "";
+    border-bottom: 43.4px solid #ccc;
+    border-right: 25px solid transparent;
+    border-left: 25px solid transparent;
+    position: absolute;
+    top: 40px;
+    right: 15%;
+  }
+  .star6:after {
+    content: "";
+    border-top: 43.3px solid #ccc;
+    border-right: 25px solid transparent;
+    border-left: 25px solid transparent;
+    position: absolute;
+    bottom: 0;
+    right: 15%;
+  }
+
+  img {
+    width: 100%;
+  }
+
+  h1 {
+    text-align: center;
+  }
+
+  .description-content {
+    display: flex;
+    flex-direction: column;
+
+    @media only screen and (min-width: 600px) {
+      flex-direction: row;
+    }
+
+    .description-text {
+      margin: 0 1rem;
+
+      .rating {
+        font-size: 24px;
+
+        span {
+          font-size: 30px;
+        }
+      }
+    }
+  }
+}

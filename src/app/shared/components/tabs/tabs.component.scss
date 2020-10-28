@@ -1,0 +1,35 @@
+.tabs-wrapper {
+  margin: 2rem 0;
+  text-align: center;
+
+  @media only screen and (min-width: 600px) {
+    text-align: left;
+  }
+
+  .tabs-button {
+    color: #494949;
+    text-transform: uppercase;
+    text-decoration: none;
+    background: #ffffff;
+    padding: 0.5rem 1rem;
+    border: 1px solid #494949;
+    display: inline-block;
+    transition: all 0.4s ease 0s;
+    font-family: "Staatliches", cursive;
+    font-size: 18px;
+
+    &.active {
+      color: #ffffff;
+      background: #f6b93b;
+      border: 1px solid #494949;
+      transition: all 0.4s ease 0s;
+    }
+  }
+
+  .tabs-button:hover {
+    color: #ffffff;
+    background: #f6b93b;
+    border-color: #f6b93b;
+    transition: all 0.4s ease 0s;
+  }
+}

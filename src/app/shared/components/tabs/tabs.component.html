@@ -1,0 +1,16 @@
+<div class="tabs-wrapper">
+  <button
+    class="tabs-button"
+    [ngClass]="{ active: currentMedia === 'movies' }"
+    (click)="changeMediaHandler('movies')"
+  >
+    MOVIES
+  </button>
+  <button
+    class="tabs-button"
+    [ngClass]="{ active: currentMedia === 'shows' }"
+    (click)="changeMediaHandler('shows')"
+  >
+    TV SHOWS
+  </button>
+</div>

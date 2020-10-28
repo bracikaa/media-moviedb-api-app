@@ -1,0 +1,11 @@
+<div class="card-list-wrapper">
+  <ul>
+    <li *ngFor="let singleMedia of media">
+      <app-card
+        [name]="singleMedia.name"
+        [image]="singleMedia.image"
+        (click)="goToIndividual(singleMedia.id)"
+      ></app-card>
+    </li>
+  </ul>
+</div>

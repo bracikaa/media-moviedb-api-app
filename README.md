@@ -1,27 +1,12 @@
-# TopRated
+# TV Shows and Movies Application
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 10.2.0.
+Trying to use scalable and modular CSS inside components (having some global styles that apply to page and additional component based styles). Using rems instead of pixels. Having animations, application being both mobile friendly and responsive
 
-## Development server
+Having two services -> for API calls and a simple state keeping service using Subjects.
+Trying to reduce duplication of code.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+Wrote unit tests. (todo)
 
-## Code scaffolding
+Deployed on Heroku. (todo)
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
-
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+NOTE: I filtered out the movies/shows without an image (to be more visually appealing).

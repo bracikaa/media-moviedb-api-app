@@ -1,0 +1,12 @@
+<app-loader #loader></app-loader>
+
+<app-back-navigation
+  (backClicked)="onBackClicked($event)"
+></app-back-navigation>
+
+<app-description
+  *ngIf="media"
+  [media]="media"
+  [type]="type"
+  [youtubeKey]="youtubeKey"
+></app-description>
