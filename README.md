@@ -5,7 +5,8 @@ Trying to use scalable and modular CSS inside components (having some global sty
 Having two services -> for API calls and a simple state keeping service using Subjects.
 Trying to reduce duplication of code.
 
-Wrote unit tests. (todo)
+Created mocks file for stubs and mocks, wrote a couple of unit tests, to check whether they work.
+(unit tests are run with the commang ng test)
 
 Deployed on Heroku. (todo)
 

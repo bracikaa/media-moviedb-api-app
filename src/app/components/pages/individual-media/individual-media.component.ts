@@ -11,7 +11,7 @@ import { StateService } from 'src/app/shared/services/state.service';
 })
 export class IndividualMediaComponent implements OnInit {
   id: string;
-  media: any;
+  media: Media;
   typeOfMedia: string;
   youtubeKey: string;
   configurationString: string;
@@ -47,11 +47,11 @@ export class IndividualMediaComponent implements OnInit {
       if (!this.configurationString) {
         await this.stateService.getConfiguration();
       }
-
       let response = await this.api.getIndividualMedia(
         this.typeOfMedia,
         this.id
       );
+
       this.media = {
         id: response.id,
         name: response.original_name || response.original_title,
