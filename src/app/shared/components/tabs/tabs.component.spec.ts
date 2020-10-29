@@ -32,4 +32,18 @@ describe('TabsComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('button should have text Back', () => {
+    const fixture = TestBed.createComponent(TabsComponent);
+    fixture.detectChanges();
+    const compiled = fixture.nativeElement; 
+    expect(compiled.querySelectorAll('button')[0].textContent).toContain('MOVIES');
+  });
+
+  it('button should have text Back', () => {
+    const fixture = TestBed.createComponent(TabsComponent);
+    fixture.detectChanges();
+    const compiled = fixture.nativeElement;
+    expect(compiled.querySelectorAll('button')[1].textContent).toContain('TV SHOWS');
+  });
 });

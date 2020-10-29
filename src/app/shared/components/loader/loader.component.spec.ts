@@ -22,4 +22,20 @@ describe('LoaderComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('isVisible should be true', async () => {
+    const fixture = TestBed.createComponent(LoaderComponent);
+    fixture.detectChanges();
+    await component.show();
+    fixture.detectChanges();
+    expect(component.isVisible()).toBe(true);
+  });
+
+  it('isVisible should be false', async () => {
+    const fixture = TestBed.createComponent(LoaderComponent);
+    fixture.detectChanges();
+    await component.hide();
+    fixture.detectChanges();
+    expect(component.isVisible()).toBe(false);
+  });
 });

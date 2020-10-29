@@ -1,5 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { RouterModule } from '@angular/router';
+import { ActivatedRoute, Router, RouterModule } from '@angular/router';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
 
 import { IndividualMediaComponent } from './individual-media.component';
@@ -10,20 +10,42 @@ import {
   MockedApiService,
   MockedStateService,
 } from 'src/app/shared/mocks/mocks';
+import { BackNavigationComponent } from 'src/app/shared/components/back-navigation/back-navigation.component';
 
 describe('IndividualMediaComponent', () => {
   let component: IndividualMediaComponent;
   let fixture: ComponentFixture<IndividualMediaComponent>;
   let api: MockedApiService;
   let stateService: MockedStateService;
+  let router: Router;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       imports: [RouterModule.forRoot([]), HttpClientTestingModule],
-      declarations: [IndividualMediaComponent, LoaderComponent],
+      declarations: [
+        IndividualMediaComponent,
+        LoaderComponent,
+        BackNavigationComponent,
+      ],
       providers: [
         { provide: ApiService, useClass: MockedApiService },
         { provide: StateService, useClass: MockedStateService },
+        {
+          provide: ActivatedRoute,
+          useValue: {
+            snapshot: {
+              paramMap: {
+                get: (param) => {
+                  if (param === 'media') {
+                    return 'movies';
+                  } else if (param === 'id') {
+                    return '423';
+                  }
+                },
+              },
+            },
+          },
+        },
       ],
     }).compileComponents();
   });
@@ -42,18 +64,19 @@ describe('IndividualMediaComponent', () => {
     expect(component).toBeTruthy();
   });
 
-  it('should render <app-loader>', () => {
+  it('should have id defined', () => {
     const fixture = TestBed.createComponent(IndividualMediaComponent);
     fixture.detectChanges();
-    const compiled = fixture.nativeElement;
-    expect(compiled.querySelector('app-loader')).toBeTruthy();
+    component.ngOnInit();
+    expect(component.id).toBeTruthy();
+    expect(component.id).toBe('423');
   });
 
-  it('should render <app-back-navigation>', () => {
+  it('should have media defined', () => {
     const fixture = TestBed.createComponent(IndividualMediaComponent);
     fixture.detectChanges();
-    const compiled = fixture.nativeElement;
-    expect(compiled.querySelector('app-back-navigation')).toBeTruthy();
+    expect(component.typeOfMedia).toBeTruthy();
+    expect(component.typeOfMedia).toBe('movies');
   });
 
   it('should render <app-description>', async () => {
@@ -63,5 +86,30 @@ describe('IndividualMediaComponent', () => {
     await component.getIndividualMedia();
     fixture.detectChanges();
     expect(compiled.querySelector('app-description')).toBeTruthy();
+  });
+
+  it('should have configuration string defined', async () => {
+    const fixture = TestBed.createComponent(IndividualMediaComponent);
+    fixture.detectChanges();
+    await component.getIndividualMedia();
+    fixture.detectChanges();
+    expect(component.configurationString).toBeTruthy();
+  });
+
+  it('should call getIndividualMedia()', () => {
+    const fixture = TestBed.createComponent(IndividualMediaComponent);
+    fixture.detectChanges();
+    spyOn(component, 'getIndividualMedia').and.callThrough();
+    component.ngOnInit();
+    fixture.detectChanges();
+    expect(component.getIndividualMedia).toHaveBeenCalled();
+  });
+
+  it('should have media defined', async () => {
+    const fixture = TestBed.createComponent(IndividualMediaComponent);
+    fixture.detectChanges();
+    await component.getIndividualMedia();
+    fixture.detectChanges();
+    expect(component.media).toBeTruthy();
   });
 });

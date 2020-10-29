@@ -26,9 +26,6 @@ export class MediaListPageComponent implements OnInit {
   ) {}
 
   async ngOnInit(): Promise<void> {
-    this.configurationString =
-      this.stateService.configurationString$.getValue() || '';
-
     this.searchParam = this.stateService.state$.getValue() || '';
 
     this.stateService.configurationString$.subscribe((value) => {
@@ -42,7 +39,7 @@ export class MediaListPageComponent implements OnInit {
       this.typeOfMedia = media;
 
       try {
-        this.loader.show();   
+        this.loader.show();
         if (!this.configurationString) {
           await this.stateService.getConfiguration();
         }
@@ -50,7 +47,6 @@ export class MediaListPageComponent implements OnInit {
         let response = await this.api.getTopRatedMedia(media);
 
         this.mapMedia(response);
-
         this.loader.hide();
       } catch (err) {
         this.loader.hide();
