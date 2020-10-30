@@ -1,6 +1,6 @@
 import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { RouterModule } from '@angular/router';
+import { ActivatedRoute, RouterModule } from '@angular/router';
 import { LoaderComponent, MockedApiService } from '../../mocks/mocks';
 import { ApiService } from '../../services/api.service';
 import { StateService } from '../../services/state.service';
@@ -18,9 +18,20 @@ describe('TabsComponent', () => {
       providers: [
         { provide: ApiService, useClass: MockedApiService },
         { provide: StateService, useClass: MockedApiService },
+        {
+          provide: ActivatedRoute,
+          useValue: {
+            snapshot: {
+              paramMap: {
+                get: (param) => {
+                    return 'shows';
+                },
+              },
+            },
+          },
+        },
       ],
-    })
-    .compileComponents();
+    }).compileComponents();
   });
 
   beforeEach(() => {
@@ -36,14 +47,27 @@ describe('TabsComponent', () => {
   it('button should have text Back', () => {
     const fixture = TestBed.createComponent(TabsComponent);
     fixture.detectChanges();
-    const compiled = fixture.nativeElement; 
-    expect(compiled.querySelectorAll('button')[0].textContent).toContain('MOVIES');
+    const compiled = fixture.nativeElement;
+    expect(compiled.querySelectorAll('button')[0].textContent).toContain(
+      'MOVIES'
+    );
   });
 
   it('button should have text Back', () => {
     const fixture = TestBed.createComponent(TabsComponent);
     fixture.detectChanges();
     const compiled = fixture.nativeElement;
-    expect(compiled.querySelectorAll('button')[1].textContent).toContain('TV SHOWS');
+    expect(compiled.querySelectorAll('button')[1].textContent).toContain(
+      'TV SHOWS'
+    );
   });
+
+  it('currentMedia should have been defined', () => {
+    const fixture = TestBed.createComponent(TabsComponent);
+    fixture.detectChanges();
+    component.ngOnInit();
+    expect(component.currentMedia).toBeTruthy();
+    expect(component.currentMedia).toBe('shows');
+  });
+
 });
