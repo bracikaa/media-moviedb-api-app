@@ -4,9 +4,10 @@ import { IndividualMediaComponent } from './components/pages/individual-media/in
 import { MediaListPageComponent } from './components/pages/media-list-page/media-list-page.component';
 
 const routes: Routes = [
-  {path: '', redirectTo: '/shows', pathMatch: 'full'},
+  { path: '', redirectTo: '/shows', pathMatch: 'full' },
   { path: ':media', component: MediaListPageComponent },
-  { path: 'details/:media/:id', component: IndividualMediaComponent }
+  { path: 'details/:media/:id', component: IndividualMediaComponent },
+  { path: '**', redirectTo: '/shows' },
 ];
 
 @NgModule({
