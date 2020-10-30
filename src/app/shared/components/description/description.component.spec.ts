@@ -1,6 +1,7 @@
 import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { RouterModule } from '@angular/router';
+import { BarRatingModule } from 'ngx-bar-rating';
 import { LoaderComponent, MockedApiService } from '../../mocks/mocks';
 import { ApiService } from '../../services/api.service';
 import { StateService } from '../../services/state.service';
@@ -13,7 +14,11 @@ describe('DescriptionComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [RouterModule.forRoot([]), HttpClientTestingModule],
+      imports: [
+        RouterModule.forRoot([]),
+        HttpClientTestingModule,
+        BarRatingModule,
+      ],
       declarations: [DescriptionComponent, LoaderComponent],
       providers: [
         { provide: ApiService, useClass: MockedApiService },

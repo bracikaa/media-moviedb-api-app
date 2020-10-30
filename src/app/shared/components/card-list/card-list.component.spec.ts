@@ -12,6 +12,7 @@ import { ApiService } from '../../services/api.service';
 import { StateService } from '../../services/state.service';
 
 import { CardListComponent } from './card-list.component';
+import { CardComponent } from './card/card.component';
 
 describe('CardListComponent', () => {
   let component: CardListComponent;
@@ -22,7 +23,7 @@ describe('CardListComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       imports: [RouterModule.forRoot([]), HttpClientTestingModule],
-      declarations: [CardListComponent, LoaderComponent],
+      declarations: [CardListComponent, LoaderComponent, CardComponent],
       providers: [
         { provide: ApiService, useClass: MockedApiService },
         { provide: StateService, useClass: MockedStateService },

@@ -11,21 +11,23 @@ import {
   MockedStateService,
 } from 'src/app/shared/mocks/mocks';
 import { BackNavigationComponent } from 'src/app/shared/components/back-navigation/back-navigation.component';
+import { DescriptionComponent } from 'src/app/shared/components/description/description.component';
+import { BarRating, BarRatingModule } from 'ngx-bar-rating';
 
 describe('IndividualMediaComponent', () => {
   let component: IndividualMediaComponent;
   let fixture: ComponentFixture<IndividualMediaComponent>;
   let api: MockedApiService;
   let stateService: MockedStateService;
-  let router: Router;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [RouterModule.forRoot([]), HttpClientTestingModule],
+      imports: [RouterModule.forRoot([]), HttpClientTestingModule, BarRatingModule],
       declarations: [
         IndividualMediaComponent,
         LoaderComponent,
         BackNavigationComponent,
+        DescriptionComponent
       ],
       providers: [
         { provide: ApiService, useClass: MockedApiService },

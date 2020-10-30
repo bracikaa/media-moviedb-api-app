@@ -306,7 +306,7 @@ export class MockedStateService {
 
   constructor() {}
   getConfiguration() {
-    this.configurationString$.next('http://image.tmdb.org/t/p/test');
+    this.configurationString$.next('http://image.tmdb.org/t/p/original');
     return {
       images: {
         base_url: 'http://image.tmdb.org/t/p/',

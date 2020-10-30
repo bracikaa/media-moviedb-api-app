@@ -1,7 +1,11 @@
 import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { RouterModule } from '@angular/router';
+import { CardListComponent } from 'src/app/shared/components/card-list/card-list.component';
+import { CardComponent } from 'src/app/shared/components/card-list/card/card.component';
 import { LoaderComponent } from 'src/app/shared/components/loader/loader.component';
+import { SearchComponent } from 'src/app/shared/components/search/search.component';
+import { TabsComponent } from 'src/app/shared/components/tabs/tabs.component';
 import {
   MockedApiService,
   MockedStateService,
@@ -11,7 +15,7 @@ import { StateService } from 'src/app/shared/services/state.service';
 
 import { MediaListPageComponent } from './media-list-page.component';
 
- describe('MediaListPageComponent', () => {
+describe('MediaListPageComponent', () => {
   let component: MediaListPageComponent;
   let fixture: ComponentFixture<MediaListPageComponent>;
   let api: MockedApiService;
@@ -20,7 +24,14 @@ import { MediaListPageComponent } from './media-list-page.component';
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       imports: [RouterModule.forRoot([]), HttpClientTestingModule],
-      declarations: [MediaListPageComponent, LoaderComponent],
+      declarations: [
+        MediaListPageComponent,
+        LoaderComponent,
+        TabsComponent,
+        SearchComponent,
+        CardListComponent,
+        CardComponent
+      ],
       providers: [
         { provide: ApiService, useClass: MockedApiService },
         { provide: StateService, useClass: MockedStateService },
